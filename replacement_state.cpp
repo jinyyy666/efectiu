@@ -615,9 +615,7 @@ inline
 UINT32 CACHE_REPLACEMENT_STATE::hash( 
   Addr_t key, Addr_t a_prime, Addr_t b_prime, Addr_t p_prime)
 {
-    key &=  (1<<PARTIAL_BITS) - 1;
-    assert( key < 1<<PARTIAL_BITS && key >= 0);
-    return ((a_prime * key + b_prime ) * p_prime) % numsets;
+
 }
 
 
