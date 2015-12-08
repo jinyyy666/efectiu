@@ -548,14 +548,7 @@ void CACHE_REPLACEMENT_STATE::MoveToMRU(m_set & samplerSet, UINT32 way)
 
 void CACHE_REPLACEMENT_STATE::UpdatePredictionTable(Addr_t PC, bool increase)
 {
-    // use the skew optimization (multiple prediction tables)  
-    for(UINT32 table = 0; table < TOTAL_PREDICT_TABLES; ++table){
-        UINT32 entry = hash(PC, primes[table][0], primes[table][1], primes[table][2]);
-	assert(entry >=0 && entry < numsets);
-	predictor[table][entry].cnt += increase ? 1 : -1;
-	if(predictor[table][entry].cnt < 0)  predictor[table][entry].cnt = 0;
-	if(predictor[table][entry].cnt > 3)  predictor[table][entry].cnt = 3;
-    }
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////
