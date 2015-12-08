@@ -527,14 +527,7 @@ void CACHE_REPLACEMENT_STATE::AccessSampler(UINT32 sampleIndex, Addr_t tag, Addr
 
 void CACHE_REPLACEMENT_STATE::MoveToMRU(m_set & samplerSet, UINT32 way)
 {
-    assert(way >= 0 && way < SAMPLER_ASSOC);
-    
-    INT32 j; 
-    m_block b = samplerSet.blocks[way];
-
-    for(j = way; j >= 1; --j) samplerSet.blocks[j] = samplerSet.blocks[j-1];
-
-    samplerSet.blocks[0] = b;
+`
 
 }
 
